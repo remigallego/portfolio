@@ -1,0 +1,50 @@
+$boxshadowcolor: rgba(24, 47, 70, 1)
+
+@keyframes box-shadow-enlarge
+  0%
+    box-shadow: 2px 1px 1px $boxshadowcolor
+  100%
+    box-shadow: 5px 5px 6px $boxshadowcolor
+
+@keyframes box-shadow-shrink
+  0%
+    box-shadow: 5px 5px 6px $boxshadowcolor
+  100%
+    box-shadow: 2px 1px 1px $boxshadowcolor
+
+
+.title-container
+  text-align: center
+  user-select: none
+  background-color: $color-about
+  padding-top: 30px
+  padding-bottom: 60px
+
+  .title-block
+    display: inline-block
+    margin-left: auto
+    margin-right: auto
+    padding: 20px
+    background-color: white
+    box-shadow: 2px 1px 1px $boxshadowcolor
+    animation-name: box-shadow-shrink
+    animation-duration: 100ms
+    animation-timing-function: ease-in-out
+    animation-fill-mode: forwards
+    border-bottom: 5px solid black
+    border-right: 2px solid black
+
+    .big-title
+      font-family: 'Abril Fatface', sans-serif
+      color: rgba(24, 47, 70, 1)
+      .big-title--name
+        display: inline
+    .subtitle
+      p
+        font-family: 'Montserrat', sans-serif
+        margin: 0
+    &:hover
+      animation-name: box-shadow-enlarge
+      animation-duration: 100ms
+      animation-fill-mode: forwards
+      animation-timing-function: ease-in-out

@@ -1,0 +1,26 @@
+{
+  "name": "portfolio",
+  "version": "0.1.0",
+  "private": true,
+  "homepage": ".",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "bootstrap": "^4.0.0",
+    "d3": "^4.13.0",
+    "font-awesome": "^4.7.0",
+    "hover.css": "^2.2.1",
+    "jquery": "^3.3.1",
+    "popper.js": "^1.12.9",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-scripts": "1.1.1",
+    "react-tippy": "^1.2.2",
+    "svg.js": "^2.6.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}

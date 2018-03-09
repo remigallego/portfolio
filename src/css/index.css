@@ -1,0 +1,409 @@
+@import url("https://fonts.googleapis.com/css?family=Playfair+Display");
+@import url("https://fonts.googleapis.com/css?family=Montserrat:100,400,500,600,700,800");
+@import url("https://fonts.googleapis.com/css?family=Abril+Fatface");
+@import url("https://fonts.googleapis.com/css?family=Caveat+Brush");
+.block-about-me {
+  background-color: rgba(54, 130, 150, 0.07); }
+  .block-about-me .svg-coffee {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    margin-bottom: 40px; }
+    .block-about-me .svg-coffee svg:hover {
+      animation-name: svg-fill;
+      animation-duration: 1s;
+      animation-iteration-count: infinite;
+      animation-timing-function: ease-in-out; }
+  .block-about-me .body-container {
+    padding-top: 10px;
+    padding-bottom: 10px; }
+    .block-about-me .body-container .story-container {
+      margin-top: 2vh;
+      margin-left: 15%;
+      margin-right: 15%; }
+      .block-about-me .body-container .story-container .story-title {
+        display: inline-block;
+        background: linear-gradient(transparent 1px, rgba(238, 255, 145, 0.8) 1px);
+        background-position: bottom 10px;
+        margin-bottom: 10px; }
+      .block-about-me .body-container .story-container h1 {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: bold;
+        font-size: 30px;
+        margin-top: -20px;
+        margin-left: -10px; }
+      .block-about-me .body-container .story-container p {
+        margin-top: 5px;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 600; }
+        .block-about-me .body-container .story-container p .bold {
+          display: inline;
+          font-weight: bold; }
+
+.image {
+  margin-top: 40px;
+  margin-bottom: 10px;
+  width: 100%;
+  height: 100%; }
+  .image img {
+    width: 33%;
+    min-width: 200px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 100%;
+    filter: grayscale(40%);
+    transition: all 200ms ease-in-out; }
+    .image img:hover {
+      filter: grayscale(0%); }
+
+@keyframes svg-fill-portfolio {
+  0% {
+    fill: black; }
+  50% {
+    fill: rgba(138, 245, 205, 0.8); }
+  100% {
+    fill: black; } }
+
+.block-portfolio {
+  background-color: rgba(54, 130, 150, 0.07); }
+  .block-portfolio .body-container {
+    padding-top: 20px;
+    padding-bottom: 50px; }
+    .block-portfolio .body-container .story-container {
+      margin-left: 15%;
+      margin-right: 15%;
+      margin-bottom: 50px; }
+      .block-portfolio .body-container .story-container .story-title {
+        display: inline-block;
+        background: linear-gradient(transparent 1px, rgba(138, 245, 205, 0.8) 1px);
+        background-position: bottom 10px;
+        margin-bottom: 10px; }
+      .block-portfolio .body-container .story-container h1 {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: bold;
+        font-size: 30px;
+        margin-top: -20px;
+        margin-left: -10px; }
+      .block-portfolio .body-container .story-container p {
+        margin-top: 5px;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 600; }
+
+.svg-lab {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  padding-top: 13px; }
+  .svg-lab svg:hover {
+    animation-name: svg-fill;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out; }
+
+@keyframes svg-fill-rainbow {}@keyframes svg-fill-contact {
+  0% {
+    fill: white; }
+  50% {
+    fill: rgba(38, 45, 205, 0.8); }
+  100% {
+    fill: white; } }
+
+.block-contact {
+  background-color: black; }
+  .block-contact .body-container {
+    padding-top: 80px;
+    padding-bottom: 50px;
+    color: white; }
+    .block-contact .body-container .story-container {
+      margin-left: 15%;
+      margin-right: 15%;
+      margin-bottom: 50px; }
+      .block-contact .body-container .story-container .story-title {
+        display: inline-block;
+        background: linear-gradient(transparent 1px, rgba(38, 45, 205, 0.8) 1px);
+        background-position: bottom 10px;
+        margin-bottom: 10px; }
+      .block-contact .body-container .story-container h1 {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: bold;
+        font-size: 30px;
+        margin-top: -20px;
+        margin-left: -10px; }
+      .block-contact .body-container .story-container p {
+        margin-top: 5px;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 600; }
+
+.svg-contact {
+  fill: white;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  padding-top: 13px; }
+  .svg-contact svg {
+    fill: white;
+    transition: fill 500ms; }
+    .svg-contact svg:hover {
+      animation-name: svg-fill-white;
+      animation-duration: 1s;
+      animation-iteration-count: infinite;
+      animation-timing-function: ease-in-out; }
+
+.link {
+  position: relative;
+  color: #2098D1;
+  text-decoration: none !important;
+  font-weight: bold; }
+
+.link:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(38, 45, 205, 0.8);
+  visibility: hidden;
+  -webkit-transform: scaleX(0);
+  transform: scaleX(0);
+  -webkit-transition: all 0.3s ease-in-out 0s;
+  transition: all 0.3s ease-in-out 0s; }
+
+.link:hover:before {
+  visibility: visible;
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1); }
+
+@keyframes box-shadow-enlarge {
+  0% {
+    box-shadow: 2px 1px 1px #182f46; }
+  100% {
+    box-shadow: 5px 5px 6px #182f46; } }
+
+@keyframes box-shadow-shrink {
+  0% {
+    box-shadow: 5px 5px 6px #182f46; }
+  100% {
+    box-shadow: 2px 1px 1px #182f46; } }
+
+.title-container {
+  text-align: center;
+  user-select: none;
+  background-color: #fbfbfb;
+  padding-top: 30px;
+  padding-bottom: 60px; }
+  .title-container .title-block {
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 2px 1px 1px #182f46;
+    animation-name: box-shadow-shrink;
+    animation-duration: 100ms;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+    border-bottom: 5px solid black;
+    border-right: 2px solid black; }
+    .title-container .title-block .big-title {
+      font-family: 'Abril Fatface', sans-serif;
+      color: #182f46; }
+      .title-container .title-block .big-title .big-title--name {
+        display: inline; }
+    .title-container .title-block .subtitle p {
+      font-family: 'Montserrat', sans-serif;
+      margin: 0; }
+    .title-container .title-block:hover {
+      animation-name: box-shadow-enlarge;
+      animation-duration: 100ms;
+      animation-fill-mode: forwards;
+      animation-timing-function: ease-in-out; }
+
+.catchphrase {
+  background-color: #fbfbfb;
+  padding-bottom: 30px; }
+  .catchphrase h1 {
+    font-family: 'Montserrat';
+    font-size: 30px;
+    font-weight: 800;
+    text-align: center;
+    margin: 0;
+    color: black;
+    opacity: 1; }
+    .catchphrase h1 div {
+      display: inline; }
+  .catchphrase h2 {
+    font-family: 'Montserrat';
+    font-size: 30px;
+    font-weight: 400;
+    text-align: center;
+    margin: 0;
+    color: black;
+    opacity: 1; }
+  .catchphrase .plus {
+    color: rgba(38, 45, 205, 0.8);
+    display: inline-block; }
+  .catchphrase .anim {
+    animation: spin 1s 1 50ms; }
+
+.blockchart-container {
+  width: 100%;
+  background: #fbfbfb;
+  overflow: hidden; }
+  .blockchart-container .bar-chart svg {
+    width: 100%;
+    height: 100%;
+    min-width: 300px;
+    overflow: hidden; }
+  .blockchart-container .pie-chart svg {
+    width: 100%;
+    height: 100%;
+    min-width: 300px;
+    overflow: hidden; }
+
+.tooltip-bar {
+  background-color: black;
+  border-radius: 4px;
+  color: white;
+  font-size: 10px;
+  z-index: 1;
+  padding: 5px;
+  user-select: none; }
+
+.tooltip-pie {
+  background-color: black;
+  border-radius: 4px;
+  color: white;
+  font-size: 10px;
+  z-index: 1;
+  padding: 5px;
+  user-select: none; }
+
+.morestats {
+  font-family: 'Montserrat';
+  color: #333333;
+  margin-top: 12px;
+  font-weight: 100;
+  font-size: 12px; }
+
+footer {
+  background-color: #333333;
+  height: auto;
+  color: white;
+  padding-bottom: 30px; }
+
+.mail-button {
+  background-color: rgba(138, 245, 205, 0.8);
+  font-family: 'Montserrat', sans-serif;
+  display: inline-block;
+  font-size: 30px;
+  font-weight: 800;
+  width: auto;
+  margin-left: auto;
+  margin-right: auto;
+  transition: all 300ms;
+  padding: 10px;
+  border: none; }
+  .mail-button:hover {
+    background-color: rgba(38, 45, 205, 0.8);
+    color: white;
+    border: none; }
+
+.github {
+  margin-top: 25px;
+  fill: white;
+  transition: all 300ms; }
+  .github:hover {
+    fill: rgba(238, 255, 145, 0.8); }
+
+@keyframes svg-fill {
+  0% {
+    fill: black; }
+  25% {
+    fill: #eeff91; }
+  50% {
+    fill: #8af5cd; }
+  75% {
+    fill: #262dcd; }
+  100% {
+    fill: black; } }
+
+@keyframes svg-fill-white {
+  0% {
+    fill: white; }
+  25% {
+    fill: #eeff91; }
+  50% {
+    fill: #8af5cd; }
+  75% {
+    fill: #262dcd; }
+  100% {
+    fill: white; } }
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg); }
+  100% {
+    transform: rotate(360deg); } }
+
+.codestats {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  opacity: 0.7;
+  position: fixed;
+  top: 0;
+  left: 10px;
+  background-color: #fefefe; }
+
+.navbar-title {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
+  color: white; }
+
+.navbar-cat {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  margin-left: 8px;
+  color: white; }
+
+.bg-transition-1 {
+  width: 100%;
+  height: 100px;
+  border-top: 70px solid #fbfbfb;
+  border-right: 100vw solid rgba(54, 130, 150, 0.07);
+  overflow: hidden; }
+
+.bg-transition-2 {
+  width: 100%;
+  height: 100px;
+  border-top: 70px solid rgba(54, 130, 150, 0.07);
+  border-right: 100vw solid black;
+  overflow: hidden; }
+
+.bg-transition-tofooter {
+  width: 100%;
+  height: 100px;
+  border-top: 70px solid rgba(54, 130, 150, 0.07);
+  border-right: 100vw solid #333333;
+  overflow: hidden; }
+
+.app-body {
+  display: none; }
+
+.loading-wrapper {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden; }
+  .loading-wrapper .app-loading {
+    height: 50%;
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 25vh;
+    animation: spin 1s 1 150ms;
+    fill: rgba(38, 45, 205, 0.8);
+    overflow: hidden; }
+
+body {
+  overflow-x: hidden; }
