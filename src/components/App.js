@@ -13,13 +13,10 @@ class App extends Component {
     }
     this.handleLoad = this.handleLoad.bind(this);
   }
-
-
   handleLoad(val) {
     if(val)
       $('.loading-wrapper').delay(700).fadeOut(500,"swing", () => {$('.app-body').fadeIn(300, "swing")})
   }
-
   render() {
     return (
       <div>
@@ -29,7 +26,6 @@ class App extends Component {
           <CatchPhrase />
           <Body chartLoaded={this.handleLoad}/>
         </div>
-
       </div>
     );
   }

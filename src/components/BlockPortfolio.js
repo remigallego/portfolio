@@ -1,6 +1,43 @@
 import React, { Component } from 'react';
+import CarouselSlide from './CarouselSlide.js'
+import $ from 'jquery'
+import Hammer from 'react-hammerjs'
+import 'bootstrap/dist/js/bootstrap.min.js'
+
 
 export default class BlockPortfolio extends Component {
+  constructor(props) {
+    super(props);
+
+    this.gameOfLife = {
+      title: 'Game Of Life',
+      description: 'A Game Of Life with basic statistics built with React and recharts, as part of the FreeCodeCamp curriculum.',
+      preview: 'https://camo.githubusercontent.com/ee41af111b90bee504f84aed2460b65fbcc584b1/68747470733a2f2f6d656469612e67697068792e636f6d2f6d656469612f345a354538644e637046524979586462626a2f67697068792e676966',
+      tags: ['React','CSS','Javascript','Webpack'],
+      link: 'https://github.com/remigallego/fcc-gameoflife'
+    }
+
+    this.rogueLike = {
+      title: 'RogueLike',
+      description: 'A rogue like game with procedurally generated dungeons, showcasing the power of React and Redux.',
+      preview: 'https://media.giphy.com/media/21SVrsFSSwejSDU8Of/giphy.gif',
+      tags: ['React','Redux','SASS','Javascript'],
+      link: 'https://github.com/remigallego/fcc-roguelike-react'
+    }
+
+    this.handleSwipe = this.handleSwipe.bind(this)
+  }
+  componentDidMount() {
+
+
+  }
+
+  handleSwipe(e) {
+    if(e.direction === 4)
+      $('.carousel').carousel('prev');
+    if(e.direction === 2)
+      $('.carousel').carousel('next');
+  }
 
 render() {
   return(
@@ -8,15 +45,29 @@ render() {
       <div className="container body-container">
         <div className="story-container">
           <div className="story-title"><h1>work</h1></div>
-            <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse vulputate consequat elit, sit amet consequat augue laoreet eu. Phasellus fermentum tristique placerat. Morbi maximus euismod dolor sit amet suscipit. Nulla molestie orci auctor, hendrerit urna sit amet, eleifend sem. Cras non ultricies augue. Maecenas ut ipsum non nunc accumsan rhoncus. Vivamus venenatis varius tellus, quis tincidunt quam. Sed commodo arcu et neque tempor sagittis. Donec nisl eros, dapibus ut iaculis a, maximus vitae risus. Phasellus auctor eleifend hendrerit.</p><p>
-
-Morbi porta condimentum sem eget imperdiet. Suspendisse rhoncus, lacus ut ullamcorper mattis, urna quam malesuada lectus, a tincidunt odio diam ac ex. Pellentesque tincidunt commodo aliquam. Integer viverra elit et augue posuere tempus. Aenean imperdiet ut neque ac vestibulum. Nam id lacinia arcu. Quisque placerat sed urna et tempor. Curabitur eu dolor id nisi sodales pretium. Quisque risus est, dapibus sit amet turpis id, maximus porta elit. Sed mi sapien, posuere et luctus a, facilisis eget ante.
-            </p>
-            <div className="svg-lab">
-              <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24">
-                <path d="M20.759 20.498c-2.342-3.663-5.575-6.958-5.743-11.498h-2.016c.173 5.212 3.512 8.539 5.953 12.356.143.302-.068.644-.377.644h-1.264l-4.734-7h-3.52c.873-1.665 1.85-3.414 1.936-6h-2.01c-.169 4.543-3.421 7.864-5.743 11.498-.165.347-.241.707-.241 1.057 0 1.283 1.023 2.445 2.423 2.445h13.153c1.4 0 2.424-1.162 2.424-2.446 0-.35-.076-.709-.241-1.056zm-4.759-15.498c0 1.105-.896 2-2 2s-2-.895-2-2 .896-2 2-2 2 .895 2 2zm-5-1.5c0 .829-.672 1.5-1.5 1.5s-1.5-.671-1.5-1.5.672-1.5 1.5-1.5 1.5.671 1.5 1.5zm0 3.5c0 .552-.447 1-1 1s-1-.448-1-1 .447-1 1-1 1 .448 1 1zm3-6c0 .552-.447 1-1 1s-1-.448-1-1 .447-1 1-1 1 .448 1 1z"/></svg>
+          <Hammer onSwipe={this.handleSwipe} direction='DIRECTION_HORIZONTAL'>
+            <div id="carouselExampleControls" className="carousel slide" data-interval="false" data-ride="carousel">
+              <div className="carousel-inner">
+                <div className="carousel-item active">
+                  <CarouselSlide data={this.rogueLike}/>
+                </div>
+                <div className="carousel-item ">
+                  <CarouselSlide data={this.gameOfLife}/>
+                </div>
+              </div>
+              <a className="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span className="sr-only">Previous</span>
+              </a>
+              <a className="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                <span className="carousel-control-next-icon" aria-hidden="true"></span>
+                <span className="sr-only">Next</span>
+              </a>
             </div>
-
+        </Hammer>
+        <p>I am following the <a href="https://www.freecodecamp.org/remigallego" className="link">FreeCodeCamp</a> curriculum and diving into as many interesting projects as I can find.
+          When I'm not learning new cool <b className="bold">Sass</b> tricks, I try and solidify my <b className="bold">Node</b> skills, or get a <b className="bold">React</b>/<b className="bold">Redux</b> project up and running from scratch or with <b className="bold">Webpack</b>.</p>
+        <p className="job">I am currently looking for a full-time job in the <u>Berlin</u> or the <u>London</u> area.</p>
           </div>
       </div>
     </div>

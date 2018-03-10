@@ -46,7 +46,8 @@ for (var i in jsonObj) {
   let language = i;
   if (language === 'JavaScript (JSX)')
     language = 'JSX (React)'
-  if (language !== "Plain text")
+
+  if (language !== "Plain text" && language !== 'CoffeeScript (JSX)')
     dataset.push([
       language, jsonObj[i].xps
     ])
@@ -77,6 +78,7 @@ dataset.forEach(function(d) {
   d.data = d[0];
   d.value = + d[1];
 });
+
 var color = d3.scaleOrdinal().range([
   "rgba(138,245,205,0.7)",
   "rgba(38,45,205,0.7)",
@@ -135,8 +137,14 @@ legend.append('text').attr('x', legendRectSize + legendSpacing).attr('y', legend
   buildBarGraph() {
     const jsonObj = this.state.dataset.dates
     let dataset = []
+    let count = 0;
     for(var i in jsonObj)
+    {
+      if(count === 5)
+        break
+      count++
       dataset.push([i, jsonObj[i]])
+    }
 
     let margin = {top: 70, right: 40, bottom: 30, left: 40}
     let widthFull = 400
@@ -199,7 +207,6 @@ legend.append('text').attr('x', legendRectSize + legendSpacing).attr('y', legend
         .style("top", (d3.event.pageY - 45) + "px")
         .style("display","block")
 
-
       })
       .on("mousemove", (d) => {
         tooltip
@@ -213,7 +220,7 @@ legend.append('text').attr('x', legendRectSize + legendSpacing).attr('y', legend
   // Add the X Axis
   svg.append("g")
       .attr("transform", "translate(0," + height + ")")
-      .call(d3.axisBottom(x).tickFormat(d3.timeFormat("%a %d %Y")).ticks(d3.timeDay.every(1)));
+      .call(d3.axisBottom(x).tickFormat(d3.timeFormat("%d/%m")).ticks(d3.timeDay.every(1)));
   svg.append("text")
       .attr("transform", "rotate(0)")
       .attr("y", 0 - margin.left/2-10)
@@ -228,24 +235,21 @@ legend.append('text').attr('x', legendRectSize + legendSpacing).attr('y', legend
   svg.append("g")
       .call(d3.axisLeft(y).ticks(5));
   }
-render() {
-
-  return(
+  render() {
+    return(
     <div>
-
       <div className="blockchart-container">
-      <div className="container">
-        <div className="row" >
-          <div className="bar-chart mx-auto col-sm-6 "></div>
-          <div className="pie-chart mx-auto col-sm-6 "></div>
-        </div>
-        <div className="row" >
-          <div className="morestats mx-auto">More stats on <a href="https://codestats.net/users/Remifasol" className="link">Code:Stats</a></div>
+        <div className="container">
+          <div className="row" >
+            <div className="bar-chart mx-auto col-sm-6 "></div>
+            <div className="pie-chart mx-auto col-sm-6 "></div>
+          </div>
+          <div className="row" >
+            <div className="morestats mx-auto">More stats on <a href="https://codestats.net/users/Remifasol" className="link">Code:Stats</a></div>
+          </div>
         </div>
       </div>
     </div>
-  </div>)
-}
-
-
+    )
+  }
 }

@@ -35,7 +35,7 @@
       .block-about-me .body-container .story-container p {
         margin-top: 5px;
         font-family: 'Montserrat', sans-serif;
-        font-weight: 600; }
+        font-weight: 400; }
         .block-about-me .body-container .story-container p .bold {
           display: inline;
           font-weight: bold; }
@@ -65,11 +65,16 @@
   100% {
     fill: black; } }
 
+.blockchart-container {
+  padding-bottom: 50px; }
+
 .block-portfolio {
-  background-color: rgba(54, 130, 150, 0.07); }
+  background-color: rgba(0, 110, 150, 0.08); }
+  .block-portfolio .bold {
+    font-weight: bold; }
   .block-portfolio .body-container {
     padding-top: 20px;
-    padding-bottom: 50px; }
+    padding-bottom: 10px; }
     .block-portfolio .body-container .story-container {
       margin-left: 15%;
       margin-right: 15%;
@@ -79,16 +84,19 @@
         background: linear-gradient(transparent 1px, rgba(138, 245, 205, 0.8) 1px);
         background-position: bottom 10px;
         margin-bottom: 10px; }
-      .block-portfolio .body-container .story-container h1 {
-        font-family: 'Montserrat', sans-serif;
-        font-weight: bold;
-        font-size: 30px;
-        margin-top: -20px;
-        margin-left: -10px; }
+        .block-portfolio .body-container .story-container .story-title h1 {
+          font-family: 'Montserrat', sans-serif;
+          font-weight: bold;
+          font-size: 30px;
+          margin-top: -20px;
+          margin-left: -10px; }
       .block-portfolio .body-container .story-container p {
-        margin-top: 5px;
         font-family: 'Montserrat', sans-serif;
-        font-weight: 600; }
+        font-weight: 200; }
+      .block-portfolio .body-container .story-container .job {
+        text-align: center;
+        background-color: rgba(138, 245, 205, 0.3);
+        font-weight: 400; }
 
 .svg-lab {
   margin-left: auto;
@@ -100,6 +108,74 @@
     animation-duration: 1s;
     animation-iteration-count: infinite;
     animation-timing-function: ease-in-out; }
+
+.carousel {
+  padding-top: 30px;
+  padding-bottom: 40px;
+  background-color: rgba(0, 110, 150, 0.08);
+  background: linear-gradient(to bottom, transparent, rgba(38, 145, 205, 0.11), transparent); }
+  .carousel .carousel-control-prev-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%33333333' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E") !important; }
+  .carousel .carousel-control-next-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%33333333' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E") !important; }
+  .carousel .slide {
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    padding-left: 10%;
+    padding-right: 10%; }
+    .carousel .slide .slide-title {
+      display: inline-block;
+      background: linear-gradient(transparent 1px, rgba(238, 255, 145, 0.8) 1px);
+      background-position: bottom 10px;
+      margin-bottom: 10px;
+      margin-top: 30px; }
+      .carousel .slide .slide-title h1 {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: bold;
+        font-size: 30px;
+        margin-top: -20px;
+        margin-left: -10px;
+        padding: 0 !important;
+        text-align: center;
+        white-space: nowrap;
+        font-size: 30px; }
+        @media (max-width: 575.98px) {
+          .carousel .slide .slide-title h1 {
+            font-size: 27px; } }
+    .carousel .slide p {
+      margin-top: 10%;
+      font-weight: 400;
+      text-align: center;
+      font-size: 90%; }
+    .carousel .slide .description {
+      height: 110px; }
+    .carousel .slide .preview {
+      display: block;
+      width: 100%;
+      margin: 0 auto;
+      height: auto; }
+    .carousel .slide .btnsource {
+      display: block;
+      background-color: rgba(38, 45, 205, 0.8) !important;
+      opacity: 0.6;
+      color: white;
+      transition: all 400ms;
+      margin: 0 auto;
+      margin-bottom: 5%; }
+      .carousel .slide .btnsource:hover {
+        opacity: 1; }
+    .carousel .slide .tags-wrapper {
+      display: block;
+      margin: 0 auto;
+      padding: 3px; }
+      .carousel .slide .tags-wrapper .tags {
+        border-radius: 0px;
+        font-size: 10px;
+        padding: 2px;
+        margin-right: 3px;
+        height: auto;
+        width: auto; }
 
 @keyframes svg-fill-rainbow {}@keyframes svg-fill-contact {
   0% {
@@ -190,7 +266,7 @@
 .title-container {
   text-align: center;
   user-select: none;
-  background-color: #fbfbfb;
+  background-color: rgba(54, 130, 150, 0.07);
   padding-top: 30px;
   padding-bottom: 60px; }
   .title-container .title-block {
@@ -221,7 +297,7 @@
       animation-timing-function: ease-in-out; }
 
 .catchphrase {
-  background-color: #fbfbfb;
+  background-color: rgba(54, 130, 150, 0.07);
   padding-bottom: 30px; }
   .catchphrase h1 {
     font-family: 'Montserrat';
@@ -246,10 +322,12 @@
     display: inline-block; }
   .catchphrase .anim {
     animation: spin 1s 1 50ms; }
+  .catchphrase .anim-reverse {
+    animation: spin-reverse 1s 1 50ms; }
 
 .blockchart-container {
   width: 100%;
-  background: #fbfbfb;
+  background: rgba(54, 130, 150, 0.07);
   overflow: hidden; }
   .blockchart-container .bar-chart svg {
     width: 100%;
@@ -317,6 +395,21 @@ footer {
   .github:hover {
     fill: rgba(238, 255, 145, 0.8); }
 
+.idea {
+  display: inline-block;
+  margin-top: 25px;
+  fill: white;
+  transition: all 300ms; }
+  .idea:hover {
+    fill: rgba(238, 255, 145, 0.8); }
+
+.footer-text {
+  display: inline-block;
+  opacity: 0.3;
+  font-size: 12px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 200; }
+
 @keyframes svg-fill {
   0% {
     fill: black; }
@@ -347,6 +440,12 @@ footer {
   100% {
     transform: rotate(360deg); } }
 
+@keyframes spin-reverse {
+  0% {
+    transform: rotate(0deg); }
+  100% {
+    transform: rotate(-360deg); } }
+
 .codestats {
   font-family: 'Montserrat', sans-serif;
   font-size: 11px;
@@ -370,15 +469,15 @@ footer {
 .bg-transition-1 {
   width: 100%;
   height: 100px;
-  border-top: 70px solid #fbfbfb;
-  border-right: 100vw solid rgba(54, 130, 150, 0.07);
+  border-top: 70px solid rgba(54, 130, 150, 0.07);
+  border-right: 100vw solid rgba(0, 110, 150, 0.08);
   overflow: hidden; }
 
 .bg-transition-2 {
   width: 100%;
   height: 100px;
-  border-top: 70px solid rgba(54, 130, 150, 0.07);
-  border-right: 100vw solid black;
+  border-top: 70px solid rgba(0, 110, 150, 0.08);
+  border-right: 100vw solid rgba(54, 130, 150, 0.07);
   overflow: hidden; }
 
 .bg-transition-tofooter {

@@ -4,15 +4,16 @@ import $ from 'jquery'
 export default class CatchPhrase extends Component {
 
   componentDidMount() {
-    $('.plus').mouseenter(function() {
-  
-      if(!$(this).hasClass('anim'))
+    $('.plus').mouseenter(function(e) {
+      let c = (e.offsetX < 6 ? 'anim' : 'anim-reverse')
+      if(!$(this).hasClass('anim') && !$(this).hasClass('anim-reverse') )
       {
-        $(this).addClass('anim');
-        setTimeout(() => $(this).removeClass('anim'), 1200);
+        $(this).addClass(c);
+        setTimeout(() => $(this).removeClass(c), 1200);
       }
-    })
+    }
 
+  )
   }
   render() {
     return(
