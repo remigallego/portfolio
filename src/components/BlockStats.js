@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import * as d3 from 'd3'
 import axios from 'axios'
 
-
-
 export default class CatchPhrase extends Component {
 constructor(props) {
   super(props)
@@ -32,105 +30,101 @@ constructor(props) {
     })
   }
 
+buildLineGraph() {
 
-  buildLineGraph() {
-
-  }
-  // PIE GRAPH
-  buildPieGraph() {
-const jsonObj = this.state.dataset.languages
-const total = this.state.dataset.total_xp
-
-let dataset = []
-for (var i in jsonObj) {
-  let language = i;
-  if (language === 'JavaScript (JSX)')
-    language = 'JSX (React)'
-
-  if (language !== "Plain text" && language !== 'CoffeeScript (JSX)')
-    dataset.push([
-      language, jsonObj[i].xps
-    ])
 }
+// PIE GRAPH
+buildPieGraph() {
+  const jsonObj = this.state.dataset.languages
+  const total = this.state.dataset.total_xp
 
-let calcPercentage = function(d) {
-  let value = d.value
-  let result = (value * 100) / total
-  return Math.ceil(result)
-}
+  let dataset = []
+  for (var i in jsonObj) {
+    let language = i;
+    if (language === 'JavaScript (JSX)')
+      language = 'JSX (React)'
 
-let tooltipPie = d3.select('body').append("div").attr("class", 'tooltip-pie').style("opacity", "0").style("position", "absolute").style("display", "none").text("tooltip");
-
-let margin = {
-  top: 70,
-  right: 20,
-  bottom: 30,
-  left: 70
-}
-let widthFull = 500
-let heightFull = 300
-
-let width = widthFull - margin.left - margin.right
-let height = heightFull - margin.top - margin.bottom
-let radius = Math.min(width, height) / 1.2;
-
-dataset.forEach(function(d) {
-  d.data = d[0];
-  d.value = + d[1];
-});
-
-var color = d3.scaleOrdinal().range([
-  "rgba(138,245,205,0.7)",
-  "rgba(38,45,205,0.7)",
-  "rgba(238,255,145,0.7)",
-  "rgba(100, 251, 251, 0.7)",
-  "rgba(251, 131, 251, 0.7)",
-  "rgba(201, 191, 151, 0.7)"
-]);
-
-var arc = d3.arc().outerRadius(radius - 90).innerRadius(radius - 60);
-
-
-var pie = d3.pie().sort(null).value(function(d) {
-  return d[1];
-});
-
-let svg = d3.select(".pie-chart").append("svg").attr("width", 500).attr("height", 300).attr("viewBox", "0 0 " + width + " " + height).append("g").attr("transform", "translate(" + width / 2 + "," + height / 2 + ")")
-
-var g = svg.selectAll(".arc").data(pie(dataset)).enter().append("g").attr("class", "arc").on('mouseover', (d) => {
-  tooltipPie.style("opacity", "1")
-
-  tooltipPie.html(calcPercentage(d) + "%").style("left", (d3.event.pageX) + "px").style("top", (d3.event.pageY - 45) + "px").style("display", "block")
-}).on("mousemove", (d) => {
-  tooltipPie.style("left", (d3.event.pageX) + "px").style("top", (d3.event.pageY - 45) + "px")
-}).on("mouseout", (d) => {
-  tooltipPie.style("display", "none")
-})
-
-g.append("path").attr("d", arc).style("fill", function(d) {
-  return color(d.data);
-})
-
-var legendRectSize = 18;
-var legendSpacing = 4;
-
-var legend = svg.selectAll('.legend').data(color.domain()).enter().append('g').attr('class', 'legend').attr('transform', function(d, i) {
-  var height = legendRectSize + legendSpacing;
-  var offset = height * color.domain().length / 2;
-  var horz = -2 * legendRectSize;
-  var vert = i * height - offset;
-  return 'translate(' + horz + ',' + vert + ')';
-});
-legend.append('rect').attr('width', legendRectSize).attr('height', legendRectSize).style('fill', color).style('stroke', color)
-
-legend.append('text').attr('x', legendRectSize + legendSpacing).attr('y', legendRectSize - legendSpacing).text(function(d) {
-  return d.data;
-}).style("font-size", "13px")
-
+    if (language !== "Plain text" && language !== 'CoffeeScript (JSX)')
+      dataset.push([
+        language, jsonObj[i].xps
+      ])
   }
 
+  let calcPercentage = function(d) {
+    let value = d.value
+    let result = (value * 100) / total
+    return Math.ceil(result)
+  }
+
+  let tooltipPie = d3.select('body').append("div").attr("class", 'tooltip-pie').style("opacity", "0").style("position", "absolute").style("display", "none").text("tooltip");
+
+  let margin = {
+    top: 70,
+    right: 20,
+    bottom: 30,
+    left: 70
+  }
+  let widthFull = 500
+  let heightFull = 300
+
+  let width = widthFull - margin.left - margin.right
+  let height = heightFull - margin.top - margin.bottom
+  let radius = Math.min(width, height) / 1.2;
+
+  dataset.forEach(function(d) {
+    d.data = d[0];
+    d.value = + d[1];
+  });
+
+  var color = d3.scaleOrdinal().range([
+    "rgba(138,245,205,0.7)",
+    "rgba(38,45,205,0.7)",
+    "rgba(238,255,145,0.7)",
+    "rgba(100, 251, 251, 0.7)",
+    "rgba(251, 131, 251, 0.7)",
+    "rgba(201, 191, 151, 0.7)"
+  ]);
+
+  var arc = d3.arc().outerRadius(radius - 90).innerRadius(radius - 60);
 
 
+  var pie = d3.pie().sort(null).value(function(d) {
+    return d[1];
+  });
+
+  let svg = d3.select(".pie-chart").append("svg").attr("width", 500).attr("height", 300).attr("viewBox", "0 0 " + width + " " + height).append("g").attr("transform", "translate(" + width / 2 + "," + height / 2 + ")")
+
+  var g = svg.selectAll(".arc").data(pie(dataset)).enter().append("g").attr("class", "arc").on('mouseover', (d) => {
+    tooltipPie.style("opacity", "1")
+
+    tooltipPie.html(calcPercentage(d) + "%").style("left", (d3.event.pageX) + "px").style("top", (d3.event.pageY - 45) + "px").style("display", "block")
+  }).on("mousemove", (d) => {
+    tooltipPie.style("left", (d3.event.pageX) + "px").style("top", (d3.event.pageY - 45) + "px")
+  }).on("mouseout", (d) => {
+    tooltipPie.style("display", "none")
+  })
+
+  g.append("path").attr("d", arc).style("fill", function(d) {
+    return color(d.data);
+  })
+
+  var legendRectSize = 18;
+  var legendSpacing = 4;
+
+  var legend = svg.selectAll('.legend').data(color.domain()).enter().append('g').attr('class', 'legend').attr('transform', function(d, i) {
+    var height = legendRectSize + legendSpacing;
+    var offset = height * color.domain().length / 2;
+    var horz = -2 * legendRectSize;
+    var vert = i * height - offset;
+    return 'translate(' + horz + ',' + vert + ')';
+  });
+  legend.append('rect').attr('width', legendRectSize).attr('height', legendRectSize).style('fill', color).style('stroke', color)
+
+  legend.append('text').attr('x', legendRectSize + legendSpacing).attr('y', legendRectSize - legendSpacing).text(function(d) {
+    return d.data;
+  }).style("font-size", "13px")
+
+  }
 
 
   // BAR GRAPH
