@@ -134,7 +134,7 @@ buildPieGraph() {
     let count = 0;
     for(var i in jsonObj)
     {
-      if(count === 5)
+      if(count > 10)
         break
       count++
       dataset.push([i, jsonObj[i]])
