@@ -39,12 +39,13 @@ buildPieGraph() {
   const total = this.state.dataset.total_xp
 
   let dataset = []
+  let wanted = ['Sass', 'JSX (React)', 'JavaScript', 'HTML', 'CSS']
   for (var i in jsonObj) {
     let language = i;
     if (language === 'JavaScript (JSX)')
       language = 'JSX (React)'
 
-    if (language !== "Plain text" && language !== 'CoffeeScript (JSX)')
+    if (wanted.indexOf(language) >= 0)
       dataset.push([
         language, jsonObj[i].xps
       ])
@@ -127,108 +128,108 @@ buildPieGraph() {
   }
 
 
-  // BAR GRAPH
-  buildBarGraph() {
-    const jsonObj = this.state.dataset.dates
-    let dataset = []
-    let count = 0;
-    for(var i in jsonObj)
-    {
-      if(count > 10)
-        break 
-      count++
-      dataset.push([i, jsonObj[i]])
-    }
-
-    let margin = {top: 70, right: 40, bottom: 30, left: 40}
-    let widthFull = 400
-    let heightFull = 300
-
-    let width  = widthFull - margin.left - margin.right
-    let height = heightFull - margin.top - margin.bottom
-
-    let parseTime = d3.timeParse("%Y-%m-%d")
-
-    let x = d3.scaleBand().rangeRound([width, 0], .05).padding(0);
-    let y = d3.scaleLinear().range([height, 0]);
-
-    let svg = d3.select(".bar-chart")
-              .append("svg")
-              .attr("width",500).attr("height",300)
-              .attr("viewBox", "0 0 " + widthFull + " " + heightFull)
-              .append("g")
-              .attr("transform",
-                    "translate(" + margin.left + "," + margin.top + ")");
-    dataset.forEach(function(d) {
-      d.date = parseTime(d[0]);
-      d.close = +d[1];
-    });
-
-
-    x.domain(dataset.map(function(d) { return d.date}))
-    y.domain([0, d3.max(dataset, function(d) { return d.close; })]);
-
-    let tooltip = d3.select('body')
-              .append("div")
-              .attr("class",'tooltip-bar')
-              .style("opacity","0")
-              .style("position","absolute")
-              .style("display","none")
-              .text("tooltip");
-
-    svg.selectAll(".bar")
-      .data(dataset)
-      .enter().append("rect")
-      .attr("class","bar")
-      .style("fill","rgba(138,245,205,1)")
-      .attr("x",function(d) {return x(d.date)})
-      .attr("width", x.bandwidth())
-      .attr("y",function(d) {return y(d.close)})
-      .attr("height",function(d) {return height - y(d.close)})
-      .on("mouseover", function(d) {
-
-      tooltip.transition()
-        .duration(200)
-        .style("opacity","0.8");
-
-      let day = ("0" + d.date.getDate()).slice(-2)
-      let month = ("0" + (d.date.getMonth() + 1)).slice(-2)
-      let year = d.date.getFullYear();
-      let date = day + "/" + month + "/" + year;
-
-      tooltip.html(date + " <br><b>" + d.close + "</b> characters typed!")
-        .style("left", (d3.event.pageX) + "px")
-        .style("top", (d3.event.pageY - 45) + "px")
-        .style("display","block")
-
-      })
-      .on("mousemove", (d) => {
-        tooltip
-        .style("left", (d3.event.pageX) + "px")
-        .style("top", (d3.event.pageY - 45) + "px");
-      })
-      .on("mouseout",(d)=>{
-      tooltip.transition().duration(200).style("opacity","0")
-      })
-
-  // Add the X Axis
-  svg.append("g")
-      .attr("transform", "translate(0," + height + ")")
-      .call(d3.axisBottom(x).tickFormat(d3.timeFormat("%d/%m")).ticks(d3.timeDay.every(1)));
-  svg.append("text")
-      .attr("transform", "rotate(0)")
-      .attr("y", 0 - margin.left/2-10)
-      .attr("x",0 + width/2)
-      .attr("dy", "1em")
-      .style("text-anchor", "middle")
-      .style("font-family","Montserrat")
-      .style("font-size","13px")
-      .html("Characters of code written per day in <a>Atom</a>");
-
-  // Add the Y Axis
-  svg.append("g")
-      .call(d3.axisLeft(y).ticks(5));
+// BAR GRAPH
+buildBarGraph() {
+  const jsonObj = this.state.dataset.dates
+  let dataset = []
+  let count = 0;
+  for(var i in jsonObj)
+  {
+    if(count > 10)
+      break
+    count++
+    dataset.push([i, jsonObj[i]])
   }
+
+  let margin = {top: 70, right: 40, bottom: 30, left: 40}
+  let widthFull = 400
+  let heightFull = 300
+
+  let width  = widthFull - margin.left - margin.right
+  let height = heightFull - margin.top - margin.bottom
+
+  let parseTime = d3.timeParse("%Y-%m-%d")
+
+  let x = d3.scaleBand().rangeRound([width, 0], .05).padding(0);
+  let y = d3.scaleLinear().range([height, 0]);
+
+  let svg = d3.select(".bar-chart")
+            .append("svg")
+            .attr("width",500).attr("height",300)
+            .attr("viewBox", "0 0 " + widthFull + " " + heightFull)
+            .append("g")
+            .attr("transform",
+                  "translate(" + margin.left + "," + margin.top + ")");
+  dataset.forEach(function(d) {
+    d.date = parseTime(d[0]);
+    d.close = +d[1];
+  });
+
+
+  x.domain(dataset.map(function(d) { return d.date}))
+  y.domain([0, d3.max(dataset, function(d) { return d.close; })]);
+
+  let tooltip = d3.select('body')
+            .append("div")
+            .attr("class",'tooltip-bar')
+            .style("opacity","0")
+            .style("position","absolute")
+            .style("display","none")
+            .text("tooltip");
+
+  svg.selectAll(".bar")
+    .data(dataset)
+    .enter().append("rect")
+    .attr("class","bar")
+    .style("fill","rgba(138,245,205,1)")
+    .attr("x",function(d) {return x(d.date)})
+    .attr("width", x.bandwidth())
+    .attr("y",function(d) {return y(d.close)})
+    .attr("height",function(d) {return height - y(d.close)})
+    .on("mouseover", function(d) {
+
+    tooltip.transition()
+      .duration(200)
+      .style("opacity","0.8");
+
+    let day = ("0" + d.date.getDate()).slice(-2)
+    let month = ("0" + (d.date.getMonth() + 1)).slice(-2)
+    let year = d.date.getFullYear();
+    let date = day + "/" + month + "/" + year;
+
+    tooltip.html(date + " <br><b>" + d.close + "</b> characters typed!")
+      .style("left", (d3.event.pageX) + "px")
+      .style("top", (d3.event.pageY - 45) + "px")
+      .style("display","block")
+
+    })
+    .on("mousemove", (d) => {
+      tooltip
+      .style("left", (d3.event.pageX) + "px")
+      .style("top", (d3.event.pageY - 45) + "px");
+    })
+    .on("mouseout",(d)=>{
+    tooltip.transition().duration(200).style("opacity","0")
+    })
+
+// Add the X Axis
+svg.append("g")
+    .attr("transform", "translate(0," + height + ")")
+    .call(d3.axisBottom(x).tickFormat(d3.timeFormat("%d/%m")).ticks(d3.timeDay.every(1)));
+svg.append("text")
+    .attr("transform", "rotate(0)")
+    .attr("y", 0 - margin.left/2-10)
+    .attr("x",0 + width/2)
+    .attr("dy", "1em")
+    .style("text-anchor", "middle")
+    .style("font-family","Montserrat")
+    .style("font-size","13px")
+    .html("Characters of code written per day in <a>Atom</a>");
+
+// Add the Y Axis
+svg.append("g")
+    .call(d3.axisLeft(y).ticks(5));
+}
   render() {
     return(
     <div>
