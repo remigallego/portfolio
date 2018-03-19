@@ -14,8 +14,20 @@ class App extends Component {
     this.handleLoad = this.handleLoad.bind(this);
   }
   handleLoad(val) {
+    // Change when Prod
+    let delay1, delay2, delay3
+    if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') {
+      delay1 = 0
+      delay2 = 0
+      delay3 = 0
+    } else {
+      delay1 = 700
+      delay2 = 500
+      delay3 = 300
+    }
+
     if(val)
-      $('.loading-wrapper').delay(700).fadeOut(500,"swing", () => {$('.app-body').fadeIn(300, "swing")})
+      $('.loading-wrapper').delay(delay1).fadeOut(delay2,"swing", () => {$('.app-body').fadeIn(delay3, "swing")})
   }
   render() {
     return (

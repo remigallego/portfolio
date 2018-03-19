@@ -13,12 +13,44 @@ $boxshadowcolor: rgba(24, 47, 70, 1)
     box-shadow: 2px 1px 1px $boxshadowcolor
 
 
-.title-container
+@media (min-width: 0px)
+  .myname
+    font-size: 40px
+    width: 300px
+    border-bottom: 1px solid rgba(255,255,250,1)
+    border-bottom-width: 12px
+@media (min-width: 576px)
+  .myname
+    font-size: 50px
+    width: 380px
+    border-bottom: 1px solid rgba(255,255,250,1)
+    border-bottom-width: 14px
+
+@media (min-width: 992px)
+  .myname
+    font-size: 70px
+    width: 500px
+    border-bottom: 1px solid rgba(255,255,250,1)
+    border-bottom-width: 20px
+
+.myname
+  font-family: 'Montserrat', sans-serif
+  font-weight: 900
   text-align: center
+  color: rgba(38,45,195,0.8)
+
+
+
+
+
+.name-underline
+
+.title-container
   user-select: none
   background-color: $backgroundaboutme
   padding-top: 30px
   padding-bottom: 60px
+  background: linear-gradient(rgba(38,45,205,0.1), $backgroundaboutme)
 
   .title-block
     display: inline-block

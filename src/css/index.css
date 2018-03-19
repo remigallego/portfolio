@@ -69,7 +69,7 @@
   padding-bottom: 50px; }
 
 .block-portfolio {
-  background-color: rgba(0, 110, 150, 0.08); }
+  background-color: rgba(0, 110, 150, 0.11); }
   .block-portfolio .bold {
     font-weight: bold; }
   .block-portfolio .body-container {
@@ -112,7 +112,7 @@
 .carousel {
   padding-top: 30px;
   padding-bottom: 40px;
-  background-color: rgba(0, 110, 150, 0.08);
+  background-color: rgba(0, 110, 150, 0.11);
   background: linear-gradient(to bottom, transparent, rgba(38, 145, 205, 0.11), transparent); }
   .carousel .carousel-control-prev-icon {
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%33333333' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E") !important; }
@@ -263,12 +263,39 @@
   100% {
     box-shadow: 2px 1px 1px #182f46; } }
 
-.title-container {
+@media (min-width: 0px) {
+  .myname {
+    font-size: 40px;
+    width: 300px;
+    border-bottom: 1px solid #fffffa;
+    border-bottom-width: 12px; } }
+
+@media (min-width: 576px) {
+  .myname {
+    font-size: 50px;
+    width: 380px;
+    border-bottom: 1px solid #fffffa;
+    border-bottom-width: 14px; } }
+
+@media (min-width: 992px) {
+  .myname {
+    font-size: 70px;
+    width: 500px;
+    border-bottom: 1px solid #fffffa;
+    border-bottom-width: 20px; } }
+
+.myname {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
   text-align: center;
+  color: rgba(38, 45, 195, 0.8); }
+
+.title-container {
   user-select: none;
   background-color: rgba(54, 130, 150, 0.07);
   padding-top: 30px;
-  padding-bottom: 60px; }
+  padding-bottom: 60px;
+  background: linear-gradient(rgba(38, 45, 205, 0.1), rgba(54, 130, 150, 0.07)); }
   .title-container .title-block {
     display: inline-block;
     margin-left: auto;
@@ -470,13 +497,13 @@ footer {
   width: 100%;
   height: 100px;
   border-top: 70px solid rgba(54, 130, 150, 0.07);
-  border-right: 100vw solid rgba(0, 110, 150, 0.08);
+  border-right: 100vw solid rgba(0, 110, 150, 0.11);
   overflow: hidden; }
 
 .bg-transition-2 {
   width: 100%;
   height: 100px;
-  border-top: 70px solid rgba(0, 110, 150, 0.08);
+  border-top: 70px solid rgba(0, 110, 150, 0.11);
   border-right: 100vw solid rgba(54, 130, 150, 0.07);
   overflow: hidden; }
 
